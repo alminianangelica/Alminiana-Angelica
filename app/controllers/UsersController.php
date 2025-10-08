@@ -48,14 +48,13 @@ class UsersController extends Controller {
         $this->call->view('users/index', $data);
     }
 
-
+    // 🧩 CREATE
     function create(){
-        if ($_SESSION['role'] !== 'admin') {
-    // redirect regular users to the dashboard
-    redirect(site_url('auth/dashboard'));
-    exit;
-}
-
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            // redirect regular users or guests to the dashboard
+            redirect(site_url('auth/dashboard'));
+            exit;
+        }
 
         if ($this->io->method() == 'post') {
             $firstname= $this->io->post('first_name');
@@ -78,13 +77,12 @@ class UsersController extends Controller {
         }
     }
 
+    // 🧩 UPDATE
     function update($id){
-        if ($_SESSION['role'] !== 'admin') {
-    // redirect regular users to the dashboard
-    redirect(site_url('auth/dashboard'));
-    exit;
-}
-
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            redirect(site_url('auth/dashboard'));
+            exit;
+        }
 
         $user = $this->UsersModel->find($id);
         if(!$user) {
@@ -113,14 +111,13 @@ class UsersController extends Controller {
             $this->call->view('users/update', $data);
         }
     }
-    
-    function delete($id){
-        if ($_SESSION['role'] !== 'admin') {
-    // redirect regular users to the dashboard
-    redirect(site_url('auth/dashboard'));
-    exit;
-}
 
+    // 🧩 DELETE
+    function delete($id){
+        if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            redirect(site_url('auth/dashboard'));
+            exit;
+        }
 
         if($this->UsersModel->delete($id)){
             redirect(site_url('/users'));

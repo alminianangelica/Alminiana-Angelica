@@ -7,6 +7,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="<?=base_url();?>/public/style.css">
+
   <style>
     body { font-family: 'Poppins', sans-serif; background-color: #f4f6fa; }
     .nav-gradient { background: linear-gradient(90deg, #001F3F, #003366, #001F3F); }
