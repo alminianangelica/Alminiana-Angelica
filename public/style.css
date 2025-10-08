@@ -1,4 +1,6 @@
-/* Pagination Container */
+/* ================================
+   Pagination Container
+================================ */
 .pagination {
     display: flex;
     flex-wrap: wrap;
@@ -46,14 +48,16 @@
     box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
 }
 
-/* Logout button sa ibaba ng screen */
+/* ================================
+   Logout Button - Bottom Right
+================================ */
 .logout-btn {
-  position: fixed;       /* hiwalay na siya sa layout, laging nasa screen */
-  bottom: 20px;          /* 20px mula sa ibaba */
-  right: 20px;           /* nasa lower right corner */
-  z-index: 9999;         /* siguraduhin na nasa ibabaw ng lahat */
-  display: inline-block; /* huwag mawala */
-  
+  position: fixed;       /* stays visible on screen */
+  bottom: 20px;          /* 20px from bottom */
+  right: 20px;           /* lower right corner */
+  z-index: 9999;         /* on top of everything */
+  display: inline-block;
+
   background-color: #dc2626; /* red-600 */
   color: #fff;
   padding: 10px 20px;
@@ -63,9 +67,9 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Hover effect */
 .logout-btn:hover {
   background-color: #b91c1c; /* darker red */
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0,0,0,0.4);
 }
-
