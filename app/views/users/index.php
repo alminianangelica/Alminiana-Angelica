@@ -105,19 +105,24 @@
         </table>
       </div>
 
-      <!-- Pagination & Logout -->
-      <div class="mt-6 flex justify-between items-center">
-        <div class="pagination flex space-x-2 text-sm">
-          <?php
-            if (!empty($page)) {
-              echo str_replace(
-                ['<a ', '<strong>', '</strong>'],
-                ['<a class="hp-page text-blue-700 underline"', '<span class="hp-current font-bold text-orange-600">', '</span>'],
-                $page
-              );
-            }
-          ?>
-        </div>
+      <!-- Pagination -->
+<div class="mt-4 flex justify-center">
+  <div class="pagination flex space-x-2">
+    <?php
+      if (!empty($page)) {
+        // Palitan ang <strong> at <a> ng custom class
+        echo str_replace(
+          ['<a ', '<strong>', '</strong>'],
+          [
+            '<a class="hp-page"',          // Normal page link
+            '<span class="hp-current">',   // Current page
+            '</span>'
+          ],
+          $page
+        );
+      }
+    ?>
+  </div>
 
         <a href="<?=site_url('auth/logout');?>"
            class="btn-hover bg-blue-900 hover:bg-blue-950 text-white px-4 py-2 rounded-lg shadow flex items-center gap-2">
